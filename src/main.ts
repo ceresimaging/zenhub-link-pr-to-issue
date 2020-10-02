@@ -7,7 +7,7 @@ async function run(): Promise<void> {
     const branchName: string = context.payload.pull_request!.head.ref
     core.debug(`Branch name: ${branchName}`)
 
-    const regex = RegExp('^[0-9]+-.*$')
+    const regex = RegExp('^([A-z]+/)+[0-9]+ -.*$')
     if (!regex.test(branchName)) {
       core.debug(`Branch name is not lead by a number followed by a dash`)
       return
